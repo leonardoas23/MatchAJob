@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Titttle = "Perfis";
+    List<MatchAJob.Models.Usuario> usuarios = ViewBag.usuarios;
+}
+<div>
+    <a href="/usuario/registrar" class="btn btn-default">Registrar usuario</a>
+</div>
+
+@if (TempData["Sucesso"] != null)
+            {
+                <div class="alert alert-success">@TempData["Sucesso"]</div>
+            }
+@if (TempData["Erro"] != null)
+            {
+                <div class="alert alert-danger">@TempData["Erro"]</div>
+            }
+
+<div class="jumbotron">
+    <h5>Usuarios</h5>
+    <table class="table">
+        <tr>
+            <td>Nome</td>
+            <td>Area</td>
+            <td>Tipo</td>
+            <td>Nivel</td>
+            <td>Email</td>
+            <td>Habilidades</td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach(var u in usuarios)
+            {
+    <tr>
+        <td>@u.Nome</td>
+        <td>@u.Area</td>
+        <td>@u.Tipo</td>
+        <td>@u.Nivel</td>
+        <td>@u.Email</td>
+        <td>@u.Habilidades</td>
+        <td><a href="/usuario/@u.Id/Alterar" class="btn btn-default">Editar</a></td>
+        <td><a href="/usuario/@u.Id/Excluir" class="btn btn-default">Excluir</a></td>
+        <td></td>
+    </tr>
+            }
+    </table>
+</div>

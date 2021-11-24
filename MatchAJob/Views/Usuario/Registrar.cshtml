@@ -1,0 +1,68 @@
+﻿
+<div>
+    <a href="/usuario/Perfis" class="btn btn-default" >Visualizar perfis</a>
+</div>
+<div class="jumbotron">
+    <h3>Registro de Usuário</h3>
+</div>
+
+<form action="/usuario/cadastrar" method="post">
+
+    <div class="form-group">
+        <label for="nome">Nome: </label>
+        <input type="text" class="form-control" id="nome" name="nome">
+    </div>
+
+    <div class="form-group">
+
+        <label for="area">Area:</label>
+        <select class="form-control" id="area" name="area">
+
+            <option>T.I</option>
+            <option>Desenvolvedor</option>
+            <option>Suporte</option>
+
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="tipo">Tipo de usuario: </label>
+        <select class="form-control" id="tipo" name="tipo">
+            <option>Empregado</option>
+            <option>Empregador</option>
+       
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Nivel">Nivel desejado:</label>
+        <select class="form-control" id="nivel" name="nivel">
+            <option>Estagio</option>
+            <option>Junior</option>
+            <option>Pleno</option>
+            <option>Senior</option>
+            <option>Professional</option>
+            <option>Consultor</option>           
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email">
+
+    </div>
+
+    <div class="form-group">
+        <label for="habilidades">
+            <textarea class="text" id="habilidades" name="habilidades" rows="5"></textarea>
+
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+
+
+
+</form>

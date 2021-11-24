@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Titttle = "Perfis";
+    MatchAJob.Models.Usuario usuarios = ViewBag.usuario;
+}
+
+<div class="jumbotron">
+    <h3>Alterar Usuário</h3>
+</div>
+
+<form action="/usuario/@usuarios.Id/editar" method="post">
+
+    <div class="form-group">
+        <label for="nome">Nome: </label>
+        <input type="text" class="form-control" id="nome" value="@usuarios.Nome" name="nome">
+    </div>
+
+    <div class="form-group">
+
+        <label for="area">Area:</label>
+        <select class="form-control" id="area" value="@usuarios.Area" name="area">
+
+            <option>T.I</option>
+            <option>Desenvolvedor</option>
+            <option>Suporte</option>
+
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="tipo">Tipo de usuario: </label>
+        <select class="form-control" id="tipo" value="@usuarios.Tipo" name="tipo">
+            <option>Empregado</option>
+            <option>Empregador</option>
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Nivel">Nivel desejado:</label>
+        <select class="form-control" id="nivel" value="@usuarios.Nivel" name="nivel">
+            <option>Estagio</option>
+            <option>Junior</option>
+            <option>Pleno</option>
+            <option>Senior</option>
+            <option>Professional</option>
+            <option>Consultor</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="email" class="form-control" id="email" value="@usuarios.Email" name="email">
+
+    </div>
+
+    <div class="form-group">
+        <label for="habilidades">
+            <textarea class="text" id="habilidades" name="habilidades" value="@usuarios.Habilidades" rows="5"></textarea>
+
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+
+
+
+
+</form>
