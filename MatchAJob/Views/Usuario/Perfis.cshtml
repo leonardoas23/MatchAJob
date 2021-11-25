@@ -38,7 +38,7 @@
         <td>@u.Email</td>
         <td>@u.Habilidades</td>
         <td><a href="/usuario/@u.Id/Alterar" class="btn btn-default">Editar</a></td>
-        <td><a href="/usuario/@u.Id/Excluir" class="btn btn-default">Excluir</a></td>
+        <td><a href="/usuario/@u.Id/Excluir" class="btn btn-danger" onclick="Excluir(@u.Id,event)">Excluir</a></td>
         <td></td>
     </tr>
             }
