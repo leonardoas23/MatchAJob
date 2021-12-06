@@ -34,7 +34,7 @@ namespace MatchAJob
             routes.MapRoute(
                "usuario_alterar",
                "usuario/{id}/alterar",
-               new { Controller = "Usuario", action = "Alterar", id = 0 }
+               new { Controller = "Usuario", action = "Alterar", id = 0  }
                );
             routes.MapRoute(
    "usuario_editar",

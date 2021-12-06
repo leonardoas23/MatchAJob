@@ -2,45 +2,57 @@
     ViewBag.Titttle = "Perfis";
     List<MatchAJob.Models.Usuario> usuarios = ViewBag.usuarios;
 }
+<h1>Usuarios</h1>
 <div>
-    <a href="/usuario/registrar" class="btn btn-default">Registrar usuario</a>
+    <a href="/usuario/registrar" class="btn btn-success">Registrar usuario</a>
 </div>
 
 @if (TempData["Sucesso"] != null)
-            {
-                <div class="alert alert-success">@TempData["Sucesso"]</div>
-            }
+{
+    <div class="alert alert-success">@TempData["Sucesso"]</div>
+}
 @if (TempData["Erro"] != null)
-            {
-                <div class="alert alert-danger">@TempData["Erro"]</div>
-            }
+{
+    <div class="alert alert-danger">@TempData["Erro"]</div>
+}
 
-<div class="jumbotron">
-    <h5>Usuarios</h5>
-    <table class="table">
-        <tr>
-            <td>Nome</td>
-            <td>Area</td>
-            <td>Tipo</td>
-            <td>Nivel</td>
-            <td>Email</td>
-            <td>Habilidades</td>
-            <td></td>
-            <td></td>
-        </tr>
-        @foreach(var u in usuarios)
-            {
-    <tr>
-        <td>@u.Nome</td>
-        <td>@u.Area</td>
-        <td>@u.Tipo</td>
-        <td>@u.Nivel</td>
-        <td>@u.Email</td>
-        <td>@u.Habilidades</td>
-        <td><a href="/usuario/@u.Id/Alterar" class="btn btn-default">Editar</a></td>
-        <td><a href="/usuario/@u.Id/Excluir" class="btn btn-danger" onclick="Excluir(@u.Id,event)">Excluir</a></td>
-        <td></td>
-    </tr>
-            }
-    </table>
-</div>
+
+
+@foreach (var u in usuarios)
+{
+
+    <div class="card mb-3" style="max-width:100%;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <h3 class="card-title">@u.Nome</h3>
+                <img src="~/images/teste.png" class="img-fluid rounded-start" alt="..." width="350" height="350">
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="card-body">
+
+
+
+                </div>
+                <p class="card-text">
+                    <h4> Area </h4> @u.Area
+
+                    <h4> Tipo  </h4>
+                    @u.Tipo
+                    <h4> Nivel  </h4>
+                    @u.Nivel
+                    <h4> Habilidade Principal  </h4>
+                    @u.Habilidades
+                </p>
+            </div>
+            <a href="/usuario/@u.Id/Alterar" class="btn btn-primary">Ver perfil completo</a>
+            <a href="/usuario/@u.Id/Alterar" class="btn btn-warning">Editar</a>
+
+
+
+            <a href="/usuario/@u.Id/Excluir" class="btn btn-danger" onclick="Excluir(@u.Id,event)">Excluir</a>
+        </div>
+    </div>
+}
+

@@ -40,15 +40,22 @@ namespace MatchAJob.Controllers
 
         public ActionResult Alterar(int id)
         {
-            var usuario = Usuario.BuscarId(id);
-            ViewBag.Usuario = usuario;
-            return View();
+            
+                var usuario = Usuario.BuscarId(id);
+                ViewBag.Usuario = usuario;
+                return View();
+            
+            
+           
+            
         }
 
         [HttpPost]
-        public void Editar(int id)
+        public void Editar(int id, string emaillog)
         {
-            try {
+
+            try
+            {
                 var usuario = Usuario.BuscarId(id);
 
                 usuario.Nome = Request["nome"];
@@ -57,15 +64,26 @@ namespace MatchAJob.Controllers
                 usuario.Nivel = Request["nivel"];
                 usuario.Email = Request["email"];
                 usuario.Habilidades = Request["habilidades"];
+                if (usuario.Email == emaillog)
+                {
+                    usuario.Save();
 
-                usuario.Save();
+                    TempData["Sucesso"] = "Alteracao realizada com sucesso";
+                }
+                else { TempData["Erro"] = "Falha durante o processo de alteracao"; }
 
-                TempData["Sucesso"] = "Alteracao realizada com sucesso";
             }
-            catch {
-                TempData["Erro"] = "Falha durante o processo de alteracao";
-                    }
-            Response.Redirect("/Usuario/Perfis");
+
+
+
+            
+            catch
+                {
+                    TempData["Erro"] = "Falha durante o processo de alteracao";
+                }
+                Response.Redirect("/Usuario/Perfis");
+            
+        
         }
         public void Excluir (int id)
         {
